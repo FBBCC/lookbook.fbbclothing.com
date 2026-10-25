@@ -4,11 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FBB Lookbook</title>
-    <meta http-equiv="refresh" content="0; url=./FBB%20Clothing%20Company%20Look%20Book%20Digital.pdf" />
     <style>
       :root {
-        --bg: #121212;
-        --panel: #1b1b1b;
+        --bg: #0d0d0d;
+        --panel: #171717;
         --text: #f5f5f5;
         --muted: #bdbdbd;
         --accent: #d4af75;
@@ -16,54 +15,101 @@
 
       * { box-sizing: border-box; }
 
-      body {
+      html, body {
         margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
+        width: 100%;
+        height: 100%;
         background: var(--bg);
         color: var(--text);
         font-family: Arial, Helvetica, sans-serif;
+        overflow: hidden;
       }
 
-      .card {
-        width: min(90vw, 560px);
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px 20px;
         background: var(--panel);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 16px;
-        padding: 32px 24px;
-        text-align: center;
-        box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
       }
 
-      h1 {
-        margin: 0 0 12px;
-        font-size: clamp(2rem, 4vw, 2.5rem);
-        letter-spacing: 0.04em;
-      }
-
-      p {
-        margin: 0 0 24px;
-        color: var(--muted);
-        line-height: 1.6;
-      }
-
-      a {
-        display: inline-block;
-        text-decoration: none;
-        background: var(--accent);
-        color: #111;
-        padding: 12px 22px;
-        border-radius: 999px;
+      .brand {
+        font-size: 1rem;
         font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 16px;
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 999px;
+        color: var(--text);
+        text-decoration: none;
+        background: rgba(255,255,255,0.02);
+        font-weight: 600;
+      }
+
+      .button.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #111;
+      }
+
+      .viewer-wrap {
+        flex: 1;
+        width: 100%;
+        height: calc(100vh - 68px);
+        background: #111;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        background: white;
+      }
+
+      @media (max-width: 640px) {
+        .topbar {
+          flex-wrap: wrap;
+          justify-content: center;
+          text-align: center;
+        }
       }
     </style>
   </head>
   <body>
-    <div class="card">
-      <h1>FBB Lookbook</h1>
-      <p>Opening the latest FBB collection lookbook...</p>
-      <a href="./FBB%20Clothing%20Company%20Look%20Book%20Digital.pdf">Open Lookbook</a>
+    <div class="topbar">
+      <div class="brand">FBB Lookbook</div>
+      <div class="actions">
+        <a class="button primary" href="./FBB%20Clothing%20Company%20Look%20Book%20Digital.pdf" target="_blank" rel="noopener">Open in New Tab</a>
+      </div>
+    </div>
+
+    <div class="viewer-wrap">
+      <iframe
+        src="./FBB%20Clothing%20Company%20Look%20Book%20Digital.pdf#toolbar=1&navpanes=1&scrollbar=1&view=FitH"
+        title="FBB Lookbook PDF"
+        allowfullscreen
+      ></iframe>
     </div>
   </body>
 </html>
